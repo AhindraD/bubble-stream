@@ -45,7 +45,7 @@ intervalID = setInterval(() => {
 
     // Change color based on the value
     if (value > 50) {
-        progressBar.style.backgroundColor = 'green';
+        progressBar.style.backgroundColor = 'rgb(0, 214, 0)';
     } else if (value > 25) {
         progressBar.style.backgroundColor = 'orange';
     } else {
