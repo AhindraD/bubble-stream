@@ -24,7 +24,7 @@ function shareURL() {
         });
 }
 
-let timeleft = 60;
+let timeleft = 53;
 let intervalID;
 let timeoutID;
 function addTime() {
