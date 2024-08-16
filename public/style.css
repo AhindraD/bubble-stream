@@ -88,7 +88,7 @@
 }
 
 .stream {
-    width: 200px;
+    width: 300px;
     box-shadow: 0px 0px 11px 5px rgb(0, 195, 255);
     border-radius: 5px;
     position: relative;
@@ -98,7 +98,7 @@
     box-shadow: 0px 0px 11px 5px rgb(217, 0, 177);
     border-radius: 5px;
     position: relative;
-    width: 200px;
+    width: 300px;
     align-self: center;
 }
 
@@ -146,4 +146,16 @@
     font-size: 20px;
     text-shadow: 1px 1px 1px rgb(0, 0, 0);
     transition: width 0.5s ease, background-color 0.5s ease;
+}
+
+
+
+@media screen and (max-width: 600px) and (min-width: 300px) {
+    .stream {
+        width: 200px;
+    }
+
+    .received video {
+        width: 200px;
+    }
 }
