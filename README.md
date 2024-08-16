@@ -1,3 +1,3 @@
 # Bubble Stream
-## [https://stream-hubz.onrender.com/](https://stream-hubz.onrender.com/30nuv6vkk64)
+## https://bubble-stream.onrender.com
 keep claiming time, else the call ends!
