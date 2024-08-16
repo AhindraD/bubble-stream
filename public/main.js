@@ -4,12 +4,19 @@ const addTimeEL = document.querySelector("#add-time");
 const timeleftEL = document.querySelector("#timeleft");
 const socket = io("/");
 
+const progressBar = document.getElementById('progress-bar');
+const progressInput = document.getElementById('progress-input');
+// Initialize with full progress
+progressBar.style.height = '100%';
+progressBar.textContent = '100%';
 
-let timeleft = 10;
+
+let timeleft = 50;
 let intervalID;
 let timeoutID;
 function addTime() {
-    timeleft = timeleft + 10;
+    timeleft = parseInt(timeleft + 10);
+    timeleft = timeleft > 100 ? 100 : timeleft;
     // socket.emit("add-time", timeleft);
     console.log(timeleft);
     clearInterval(timeoutID);
@@ -31,6 +38,19 @@ resetTime();
 intervalID = setInterval(() => {
     timeleft = timeleft - 1;
     timeleftEL.innerHTML = timeleft;
+
+    const value = timeleft;
+    progressBar.style.height = timeleft + '%';
+    progressBar.textContent = timeleft + '%';
+
+    // Change color based on the value
+    if (value > 50) {
+        progressBar.style.backgroundColor = 'green';
+    } else if (value > 25) {
+        progressBar.style.backgroundColor = 'orange';
+    } else {
+        progressBar.style.backgroundColor = 'red';
+    }
 }, 1000);
 
 socket.on("connection", () => console.log("Connected to server"));
@@ -177,24 +197,3 @@ function manualClose(TARGET_ID) {
 
 
 
-const progressBar = document.getElementById('progress-bar');
-const progressInput = document.getElementById('progress-input');
-
-progressInput.addEventListener(timeleftEL, function () {
-    const value = progressInput.value;
-    progressBar.style.width = timeleft + '%';
-    progressBar.textContent = timeleft + '%';
-
-    // Change color based on the value
-    if (value > 50) {
-        progressBar.style.backgroundColor = 'green';
-    } else if (value > 25) {
-        progressBar.style.backgroundColor = 'orange';
-    } else {
-        progressBar.style.backgroundColor = 'red';
-    }
-});
-
-// Initialize with full progress
-progressBar.style.width = '100%';
-progressBar.textContent = '100%';
