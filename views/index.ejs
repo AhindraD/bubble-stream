@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Bubble Stream!</title>
+</head>
+
+<body>
+    <div class="main-cont">
+        <div class="controls">
+            <p id="timeleft"></p>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar">0%</div>
+            </div>
+            <button id="add-time" onclick="addTime()"></button>
+        </div>
+
+
+        <div class="container">
+            <h1 class="title">Welcome to the Bubble Hub!</h1>
+            <h3>Streamer:</h3>
+            <video class="stream"></video>
+
+            <h3 class="v">Receiver:</h3>
+            <div class="received"></div>
+
+        </div>
+    </div>
+
+
+    <script src="peerjs.min.js"></script>
+    <script src="https://cdn.socket.io/4.5.0/socket.io.min.js"
+        integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k"
+        crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+    <script>
+        const ROOM_ID = "<%= roomId %>";
+    </script>
+</body>
+
+</html>
