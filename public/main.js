@@ -11,7 +11,20 @@ progressBar.style.height = '100%';
 progressBar.textContent = '100%';
 
 
-let timeleft = 50;
+function shareURL() {
+    let copyText = window.location.href;
+    //copyText.select();
+    navigator.clipboard
+        .writeText(copyText)
+        .then(() => {
+            alert("successfully copied!");
+        })
+        .catch(() => {
+            alert("something went wrong!");
+        });
+}
+
+let timeleft = 60;
 let intervalID;
 let timeoutID;
 function addTime() {
